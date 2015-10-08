@@ -18,40 +18,9 @@ namespace snake
 
             p2.Drow();
 
-            List<int> numList = new List<int>();
-            numList.Add(0);
-            numList.Add(1);
-            numList.Add(2);
+            horizontalLine line = new horizontalLine();
+            line.Draw();
 
-            List<char> charList = new List<char>();
-            charList.Add('$');
-            charList.Add('%');
-            charList.Add('@');
-            charList.Add('!');
-
-            foreach (char p in charList) {
-                Console.WriteLine(p);
-            }
-
-            foreach (int i in numList)
-            {
-                Console.WriteLine(i);
-            }
-
-            List<Point> pList = new List<Point>();
-            pList.Add(p1);
-            pList.Add(p2);
-
-            Point p3 = new Point(6, 7, '%');
-            Point p4 = new Point(7, 8, '$');
-            Point p5 = new Point(8, 9, '@');
-            Point p6 = new Point(9, 10, '&');
-
-            List<Point> myList = new List<Point>();
-            pList.Add(p3);
-            pList.Add(p4);
-            pList.Add(p5);
-            pList.Add(p6);
 
             Console.ReadLine();
         }
