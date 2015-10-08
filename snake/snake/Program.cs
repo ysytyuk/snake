@@ -18,7 +18,20 @@ namespace snake
 
             p2.Drow();
 
-            
+            List<int> numList = new List<int>();
+            numList.Add(0);
+            numList.Add(1);
+            numList.Add(2);
+
+            foreach (int i in numList)
+            {
+                Console.WriteLine(i);
+            }
+
+            List<Point> pList = new List<Point>();
+            pList.Add(p1);
+            pList.Add(p2);
+
 
             Console.ReadLine();
         }
