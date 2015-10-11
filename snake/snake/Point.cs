@@ -14,7 +14,7 @@ namespace snake
 
         public Point()
         {
-            
+
         }
 
         public Point(int _x, int _y, char _sym)
@@ -24,9 +24,42 @@ namespace snake
             sym = _sym;
         }
 
-        public void Drow() {
+        public Point(Point p)
+        {
+            x = p.x;
+            y = p.y;
+            sym = p.sym;
+        }
+
+        public void Move(int offset, direction direction)
+        {
+            if (direction == direction.RIGHT)
+            {
+                x = x + offset;
+            }
+            else if (direction == direction.LEFT)
+            {
+                x = x - offset;
+            }
+            else if (direction == direction.UP)
+            {
+                y = y + offset;
+            }
+            else if (direction == direction.DOWN)
+            {
+                y = y - offset;
+            }
+        }
+
+        public void Drow()
+        {
             Console.SetCursorPosition(x, y);
             Console.Write(sym);
+        }
+
+        public override string ToString()
+        {
+            return x + ", " + y + ", " + sym;
         }
     }
 }
