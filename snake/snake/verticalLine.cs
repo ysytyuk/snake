@@ -20,7 +20,7 @@ namespace snake
             }
         }
 
-        public void Draw2()
+        public void Draw()
         {
             foreach (Point p in pList)
             {

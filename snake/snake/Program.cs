@@ -25,8 +25,8 @@ namespace snake
             verticalLine rightline = new verticalLine(0, 24, 78, '+');
             upLine.Draw();
             downLine.Draw();
-            leftline.Draw2();            
-            rightline.Draw2();
+            leftline.Draw();            
+            rightline.Draw();
 
             Console.ReadLine();
         }
