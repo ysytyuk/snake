@@ -53,6 +53,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="figura.cs" />
     <Compile Include="horizontalLine.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Program.cs" />
