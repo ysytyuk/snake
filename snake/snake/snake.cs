@@ -39,5 +39,32 @@ namespace snake
             nextPoint.Move(1, direction);
             return nextPoint;
         }
+
+        public void Controlsnake(ConsoleKey key)
+        {
+            if (key == ConsoleKey.LeftArrow)
+                direction = direction.LEFT;
+            else if (key == ConsoleKey.RightArrow)
+                direction = direction.RIGHT;
+            else if (key == ConsoleKey.DownArrow)
+                direction = direction.DOWN;
+            else if (key == ConsoleKey.UpArrow)
+                direction = direction.UP;
+        }
+
+        internal bool Eat(Point food)
+        {
+            Point head = GetNextPoint();
+            if (head.IsHit(food))
+            {
+                food.sym = head.sym;
+                pList.Add(food);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
