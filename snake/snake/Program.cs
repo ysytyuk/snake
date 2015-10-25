@@ -12,52 +12,34 @@ namespace snake
         static void Main(string[] args)
         {
 
-            Point p1 = new Point(1, 2, '*');
-
-            p1.Drow();
-
-            Point p2 = new Point(4, 5, '#');
-
-            p2.Drow();
-
-            horizontalLine upLine = new horizontalLine(0, 78, 0, '+');
-            horizontalLine downLine = new horizontalLine(0, 78, 24, '+');
-            verticalLine leftline = new verticalLine(0, 24, 0, '+');
-            verticalLine rightline = new verticalLine(0, 24, 78, '+');
-            upLine.Draw();
-            downLine.Draw();
-            leftline.Draw();            
-            rightline.Draw();
+            verticalLine vl = new verticalLine(0, 10, 5, '%');
+            Draw(vl);
 
             Point p = new Point(4, 5, '*');
-            snake snake = new snake( p, 4, direction.RIGHT );
-            snake.Draw();
+            figura fSnake = new snake(p, 4, direction.RIGHT);
+            Draw(fSnake);
+            snake snake = (snake)fSnake;
 
-            FoodCreator foodCreator = new FoodCreator(80, 25, '$');
-            Point food = foodCreator.CreateFood();
-            food.Drow();
+            horizontalLine hl = new horizontalLine(0, 5, 6, '&');
 
-            while (true)
+            List<figura> figures = new List<figura>();
+            figures.Add(fSnake);
+            figures.Add(vl);
+            figures.Add(hl);
+
+            foreach (var f in figures)
             {
-                if (snake.Eat(food))
-                {
-                    food = foodCreator.CreateFood();
-                    food.Drow();
-                }
-                else
-                {
-                    snake.Move();
-                }
-
-                Thread.Sleep(100);
-
-                if (Console.KeyAvailable)
-                {
-                    ConsoleKeyInfo key = Console.ReadKey();
-                    snake.Controlsnake(key.Key);
-                }
+                f.Draw();
             }
+
+            Console.ReadLine();
+
         }
+
+        static void Draw(figura figure)
+            {
+                figure.Draw();
+            }
 
     }
 }
