@@ -58,7 +58,7 @@ namespace snake
         {
             int xOffset = 25;
             int yOffset = 8;
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.SetCursorPosition(xOffset, yOffset++);
             WriteText("============================", xOffset, yOffset++);
             WriteText("ГРА    ЗАКІНЧИЛАСЬ", xOffset + 1, yOffset++);
