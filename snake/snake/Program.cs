@@ -49,6 +49,29 @@ namespace snake
                     snake.Controlsnake(key.Key);
                 }
             }
+
+            WriteGameOver();
+            Console.ReadLine();
+        }
+
+        static void WriteGameOver()
+        {
+            int xOffset = 25;
+            int yOffset = 8;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.SetCursorPosition(xOffset, yOffset++);
+            WriteText("============================", xOffset, yOffset++);
+            WriteText("ГРА    ЗАКІНЧИЛАСЬ", xOffset + 1, yOffset++);
+            yOffset++;
+            WriteText("Автор: Евгений Картавец", xOffset + 2, yOffset++);
+            WriteText("Специально для GeekBrains", xOffset + 1, yOffset++);
+            WriteText("============================", xOffset, yOffset++);
+        }
+
+        static void WriteText(String text, int xOffset, int yOffset)
+        {
+            Console.SetCursorPosition(xOffset, yOffset);
+            Console.WriteLine(text);
         }
 
     }
