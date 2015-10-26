@@ -12,22 +12,10 @@ namespace snake
         static void Main(string[] args)
         {
 
-            Point p1 = new Point(1, 2, '*');
+            Console.SetBufferSize(80, 25);
 
-            p1.Drow();
-
-            Point p2 = new Point(4, 5, '#');
-
-            p2.Drow();
-
-            horizontalLine upLine = new horizontalLine(0, 78, 0, '+');
-            horizontalLine downLine = new horizontalLine(0, 78, 24, '+');
-            verticalLine leftline = new verticalLine(0, 24, 0, '+');
-            verticalLine rightline = new verticalLine(0, 24, 78, '+');
-            upLine.Draw();
-            downLine.Draw();
-            leftline.Draw();            
-            rightline.Draw();
+            Walls walls = new Walls(80, 25);
+            walls.Draw();
 
             Point p = new Point(4, 5, '*');
             snake snake = new snake( p, 4, direction.RIGHT );
@@ -39,6 +27,10 @@ namespace snake
 
             while (true)
             {
+                if (walls.IsHit(snake) || snake.IsHitTail())
+                {
+                    break;
+                }
                 if (snake.Eat(food))
                 {
                     food = foodCreator.CreateFood();
